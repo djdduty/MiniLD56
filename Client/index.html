@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Game Test</title>
+
+        <!-- used everywhere! -->
+        <script src="js/lib/jquery-2.1.1.min.js"></script>
+
+        <!-- Network -->
+        <script>
+            $.getScript( "http://10.0.0.5:3889/socket.io/socket.io.js" )
+              .done(function( script, textStatus ) {
+                console.log( textStatus );
+                connected = true;
+              })
+              .fail(function( jqxhr, settings, exception ) {
+                connected = false;
+                //$("#StatusHeader").html("Could not connect to game server, please try again later.");
+            });
+        </script>
+        <!-- Library Files -->
+        <script src="js/lib/Box2dWeb-2.1.a.3.js"></script>
+        <script src="js/lib/gamvas.debug.js"></script>
+
+        <!-- Game Files -->
+        <script src="js/util.js"></script>
+        <script src="js/tile.js"></script>
+        <script src="js/text.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/Main.js"></script>
+    </head>
+    <body style="background-color:black;">
+        <!-- <h1 id='StatusHeader' style='width:100%;text-align:center;font-size:30px;color:red;'></h1> -->
+        <div style="position:absolute;top:50%;left:50%;margin-top:-300px;margin-left:-400px;">
+            <canvas id="Canvas" width="800" height="600"></canvas>
+        </div>
+    </body>
+</html>
