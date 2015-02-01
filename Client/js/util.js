@@ -5,6 +5,7 @@ var PIXELSPERMETER = 32;
 var LEFT_KEYS = [gamvas.key.LEFT, gamvas.key.A];
 var RIGHT_KEYS = [gamvas.key.RIGHT, gamvas.key.D];
 var JUMP_KEYS = [gamvas.key.UP, gamvas.key.W, gamvas.key.SPACE];
+var SHOOT_KEYS = [gamvas.key.SHIFT];
 
 function isKeyDown(keys) {
     for(var i = 0; i < keys.length; ++i) {
@@ -44,4 +45,16 @@ function deleteFromArray(a, o)
             return;
         }
     }
+}
+
+function mousePosition() {
+    var m = gamvas.mouse.getPosition();
+    var s = gamvas.state.getCurrentState();
+    m.x -= $("#Canvas").offset().left;
+    m.y -= $("#Canvas").offset().top;
+    m.x -= s.dimension.w/2;
+    m.y -= s.dimension.h/2;
+    m.x += s.camera.position.x;
+    m.y += s.camera.position.y;
+    return m;
 }

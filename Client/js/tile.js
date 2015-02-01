@@ -19,7 +19,7 @@ CollisionBox = gamvas.Actor.extend({
         if(gamvas.state.getCurrentState().removeCollisions === true)
             this.body.SetActive(tileVisible(this));
         var st = gamvas.state.getCurrentState();
-        st.c.fillStyle = this.color;
+        st.c.fillStyle = "#FFF";
         st.c.fillRect(this.position.x-this.width/2, this.position.y-this.height/2, this.width, this.height);
     }
 });
